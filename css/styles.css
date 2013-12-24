@@ -2,17 +2,25 @@ body {
   margin: 0; 
   padding: 0;
   background: #111;
-  height: 100%;
   color: #fff;    
 }
 .diy-slideshow{
   position: relative;
   display: block;
+  padding: 0;
+  overflow: hidden;
+}
+.diy-slideshow:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 figure{
-  position: absolute;
   opacity: 0;
-  transition: 1s opacity;
+  transition: 1s all;
+  position: absolute;
+  display: block;
+  margin: 0;  
 }
 figcaption{
   position: absolute;
@@ -29,8 +37,9 @@ figcaption a{
   color: #fff;
 }
 figure.show{
+  position: static;
   opacity: 1;
-  transition: 1s opacity;
+  transition: 1s all;
 }
 .next, .prev{
   color: #fff;
@@ -57,4 +66,7 @@ figure.show{
   padding: 5px 10px 10px 5px;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
+}
+h1, p{
+ margin: 20px 30px;   
 }
