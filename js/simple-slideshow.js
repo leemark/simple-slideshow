@@ -1,43 +1,36 @@
 (function ($) {
     $(function(){
-        var current = 0, // futo keep track of current slide
+        var counter = 0, // to keep track of current slide
             $items = $('.diy-slideshow figure'), // a collection of all of the slides, caching for performance
             numItems = $items.length; // total number of slides
         
         // this function is what cycles the slides, showing the next or previous slide and hiding all the others
         var showCurrent = function(){
+            var itemToShow = Math.abs(counter%numItems);// uses remainder (aka modulo) operator to get the actual index of the element to show  
+           
             $items.removeClass('show'); // remove .show from whichever element currently has it
-            $items.eq(current%numItems).addClass('show'); // uses remainder (aka modulo) operator to get the actual index of the element to show  
+            $items.eq(itemToShow).addClass('show');    
         };
-        
-        $items.eq(0).addClass('show'); // show the first slide when page is loaded (this can also be done in html if you prefer) 
-        
-        // add previous and next links
-        var navLinks = '<span class="prev">&laquo;</span>';
-        navLinks += '<span class="next">&raquo;</span>';
-        $('.diy-slideshow').append(navLinks);
         
         // add click events to prev & next buttons 
         $('.next').on('click', function(){
-            current++;
+            counter++;
             showCurrent(); 
         });
         $('.prev').on('click', function(){
-            current--;
+            counter--;
             showCurrent(); 
         });
         
-        // if touch events are supported then 
-        // add swipe events using TouchSwipe
-        // https://github.com/mattbryson/TouchSwipe-Jquery-Plugin
+        // if touch events are supported then add swipe interactions using TouchSwipe https://github.com/mattbryson/TouchSwipe-Jquery-Plugin
         if('ontouchstart' in window){
-            $(".diy-slideshow").swipe({
+            $('.diy-slideshow').swipe({
                 swipeLeft:function() {
-                    current++;
+                    counter++;
                     showCurrent(); 
                 },
                 swipeRight:function() {
-                    current--;
+                    counter--;
                     showCurrent(); 
                 }
             });

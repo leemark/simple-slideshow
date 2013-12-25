@@ -2,25 +2,17 @@ body {
   margin: 0; 
   padding: 0;
   background: #111;
-  color: #fff;    
+  height: 100%;
 }
 .diy-slideshow{
   position: relative;
   display: block;
-  padding: 0;
   overflow: hidden;
 }
-.diy-slideshow:after {
-  content: "";
-  display: table;
-  clear: both;
-}
 figure{
-  opacity: 0;
-  transition: 1s all;
   position: absolute;
-  display: block;
-  margin: 0;  
+  opacity: 0;
+  transition: 1s opacity;
 }
 figcaption{
   position: absolute;
@@ -37,9 +29,9 @@ figcaption a{
   color: #fff;
 }
 figure.show{
-  position: static;
   opacity: 1;
-  transition: 1s all;
+  position: static;
+  transition: 1s opacity;
 }
 .next, .prev{
   color: #fff;
@@ -50,6 +42,7 @@ figure.show{
   font-size: 2em;
   margin-top: -.75em;
   opacity: .3;
+  user-select: none;
 }
 .next:hover, .prev:hover{
   cursor: pointer;
@@ -57,16 +50,18 @@ figure.show{
 }
 .next{
   right: 0;
-  padding: 5px 5px 10px 10px;
+  padding: 10px 5px 15px 10px;
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
 }
 .prev{
   left: 0;
-  padding: 5px 10px 10px 5px;
+  padding: 10px 10px 15px 5px;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
 }
-h1, p{
- margin: 20px 30px;   
+p{
+  margin: 10px 20px;
+  color: #fff;
 }
+a{color:#fff;}
