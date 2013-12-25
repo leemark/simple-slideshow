@@ -6,6 +6,8 @@ body {
   height: 100%;
 }
 .diy-slideshow{
+  margin: 0;
+  padding: 0;
   position: relative;
   display: block;
   overflow: hidden;
