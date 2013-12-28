@@ -1,4 +1,4 @@
-(function ($) {
+(function ($, window, undefined) {
     $(function(){
         var counter = 0, // to keep track of current slide
             $items = $('.diy-slideshow figure'), // a collection of all of the slides, caching for performance
@@ -36,4 +36,4 @@
             });
         }
     });
-})(jQuery);    
+})(jQuery, window);    
