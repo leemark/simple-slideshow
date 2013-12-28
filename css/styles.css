@@ -21,6 +21,7 @@ figcaption{
   right: .35em;
   padding: .25em;
   color: #fff;
+  background: #000;
   background: rgba(0,0,0, .25);
   border-radius: 2px;
 }
@@ -35,6 +36,7 @@ figure.show{
 .next, .prev{
   color: #fff;
   position: absolute;
+  background: #000;
   background: rgba(0,0,0, .6);
   top: 50%;
   z-index: 1;
